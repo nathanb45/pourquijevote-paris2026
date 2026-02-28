@@ -250,3 +250,7 @@ fix(chat): prevent empty message submit     # 38 chars ✓
 - Installed a new package → mention it in the relevant section
 
 If you don't update CLAUDE.md, the next session (yours or another developer's) will have **stale context** and make wrong decisions. Treat this file as the single source of truth for the project structure.
+
+### Keep README.md Reasonable
+
+If a change affects what a new developer needs to know (new prerequis, stack change, new script, major feature added/removed), update `README.md` too. No need to update it for minor code changes.
