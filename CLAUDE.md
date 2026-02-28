@@ -50,6 +50,7 @@ Package manager is **Bun** (not npm/yarn). Never use npm or yarn.
 ## Code Style
 
 - Prettier: single quotes, no semicolons, trailing commas, 100 char width
+- **Never use emojis** in code, UI text, comments, or commit messages
 
 ---
 
@@ -96,6 +97,7 @@ Do not install new packages without asking the user first. Especially:
 - No new CSS/UI frameworks
 - No state management libraries (no Redux, Zustand, Jotai)
 - No new animation libraries (use Tailwind animations or CSS)
+- **Icons:** Use `lucide-react` (already installed). No other icon libraries.
 
 ### Don't Break Existing Patterns
 
