@@ -1,17 +1,10 @@
+import type { QuizQuestion } from '@/lib/types'
+
 // ⚠️ POSITIONS À VALIDER
 // Positions assignées par IA à partir des programmes — à vérifier avant mise en ligne
 // 1 = Pour, 0 = Neutre / Pas de position claire, -1 = Contre
 
-const CANDIDATES = [
-  { id: 'gregoire',  name: 'Emmanuel Grégoire', party: 'PS',         color: '#E91E8C' },
-  { id: 'knafo',     name: 'Sarah Knafo',        party: 'Reconquête', color: '#1A237E' },
-  { id: 'bournazel', name: 'P.-Y. Bournazel',    party: 'Renaissance',color: '#FF8C00' },
-  { id: 'dati',      name: 'Rachida Dati',        party: 'LR',         color: '#0066CC' },
-  { id: 'mariani',   name: 'Thierry Mariani',     party: 'RN',         color: '#003189' },
-  { id: 'chikirou',  name: 'Sophia Chikirou',     party: 'LFI',        color: '#CC0000' },
-];
-
-const QUESTIONS = [
+export const QUESTIONS: QuizQuestion[] = [
   {
     id: 1,
     theme: 'Logement',
@@ -33,7 +26,7 @@ const QUESTIONS = [
   {
     id: 4,
     theme: 'Sécurité',
-    text: 'Paris doit renforcer sa police municipale avec davantage d\'agents dans les rues.',
+    text: "Paris doit renforcer sa police municipale avec davantage d'agents dans les rues.",
     positions: { gregoire: 0, knafo: 1, bournazel: 1, dati: 1, mariani: 1, chikirou: -1 },
   },
   {
@@ -81,7 +74,7 @@ const QUESTIONS = [
   {
     id: 12,
     theme: 'Pauvreté & SDF',
-    text: 'La mairie doit augmenter ses dépenses pour l\'hébergement d\'urgence des personnes sans-abri.',
+    text: "La mairie doit augmenter ses dépenses pour l'hébergement d'urgence des personnes sans-abri.",
     positions: { gregoire: 1, knafo: 0, bournazel: 0, dati: 0, mariani: -1, chikirou: 1 },
   },
   {
@@ -99,19 +92,19 @@ const QUESTIONS = [
   {
     id: 15,
     theme: 'Culture & nuit',
-    text: 'La vie nocturne et les clubs parisiens doivent bénéficier d\'un soutien municipal renforcé.',
+    text: "La vie nocturne et les clubs parisiens doivent bénéficier d'un soutien municipal renforcé.",
     positions: { gregoire: 1, knafo: -1, bournazel: 1, dati: 0, mariani: -1, chikirou: 1 },
   },
   {
     id: 16,
     theme: 'Économie',
-    text: 'Paris doit faciliter l\'implantation de nouvelles entreprises et commerces pour dynamiser l\'économie.',
+    text: "Paris doit faciliter l'implantation de nouvelles entreprises et commerces pour dynamiser l'économie.",
     positions: { gregoire: 0, knafo: 1, bournazel: 1, dati: 1, mariani: 1, chikirou: -1 },
   },
   {
     id: 17,
     theme: 'Démocratie',
-    text: 'Les grands projets d\'aménagement de Paris doivent être soumis au vote direct des Parisiens.',
+    text: "Les grands projets d'aménagement de Paris doivent être soumis au vote direct des Parisiens.",
     positions: { gregoire: 1, knafo: 0, bournazel: 1, dati: 0, mariani: 0, chikirou: 1 },
   },
   {
@@ -120,4 +113,4 @@ const QUESTIONS = [
     text: 'La mairie doit utiliser son droit de préemption pour racheter des logements et les louer à prix social.',
     positions: { gregoire: 1, knafo: -1, bournazel: 0, dati: -1, mariani: -1, chikirou: 1 },
   },
-];
+]
