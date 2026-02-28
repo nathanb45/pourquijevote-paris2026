@@ -12,6 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 bun dev          # Start dev server
 bun run build    # Production build
 bun run lint     # ESLint
+bun run format   # Prettier format all files
 bun start        # Start production server
 ```
 
@@ -55,6 +56,16 @@ Package manager is **Bun** (not npm/yarn). Never use npm or yarn.
 ## STRICT RULES
 
 These rules are **mandatory**. Never break them.
+
+### Always Pull First
+
+At the start of every session, **before doing anything else**, run:
+
+```bash
+git pull
+```
+
+This ensures you're working on the latest code. Never start coding on a stale branch.
 
 ### Always Plan First
 
@@ -127,6 +138,16 @@ If something doesn't work after **2 attempts**, STOP. Do not:
 - Delete and recreate files
 
 Instead: **explain what failed, what you tried, and ask the user what to do.**
+
+### Post-Generation Validation
+
+After every code generation or modification, **always run:**
+
+```bash
+bun run post-gen
+```
+
+This runs lint --fix + build. If it fails, fix the errors before moving on. Never skip this step.
 
 ---
 
@@ -212,3 +233,18 @@ fix(chat): prevent empty message submit     # 38 chars ✓
 - Database: types → one commit, migration → another
 - Formatting changes → separate commit from logic changes
 - Import cleanup → separate commit
+
+---
+
+## Keep CLAUDE.md Up to Date
+
+**After every structural change**, update this file. This is mandatory. Examples:
+
+- Added a new page → update the Architecture section
+- Added a new component folder → update Architecture + Allowed folders
+- Added a new lib file → update Architecture
+- Changed the color palette or fonts → update Existing Design System
+- Added a new environment variable → update Environment Variables
+- Installed a new package → mention it in the relevant section
+
+If you don't update CLAUDE.md, the next session (yours or another developer's) will have **stale context** and make wrong decisions. Treat this file as the single source of truth for the project structure.

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "format": "prettier --write .",
+    "lint": "eslint",
+    "post-gen": "bun run format && bun run lint . --fix && bun run build"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",
