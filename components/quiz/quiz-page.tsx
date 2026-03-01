@@ -30,7 +30,11 @@ export function QuizPage() {
     (value: -1 | 0 | 1) => {
       setAnswers((prev) => ({
         ...prev,
-        [currentQuestion.id]: { ...prev[currentQuestion.id], value, priority: prev[currentQuestion.id]?.priority ?? false },
+        [currentQuestion.id]: {
+          ...prev[currentQuestion.id],
+          value,
+          priority: prev[currentQuestion.id]?.priority ?? false,
+        },
       }))
     },
     [currentQuestion],

@@ -14,7 +14,12 @@ interface QuizResultsProps {
 
 const MEDALS = ['🥇', '🥈', '🥉']
 
-export function QuizResults({ results, answeredCount, priorityCount, onRestart }: QuizResultsProps) {
+export function QuizResults({
+  results,
+  answeredCount,
+  priorityCount,
+  onRestart,
+}: QuizResultsProps) {
   const [animated, setAnimated] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
 
@@ -48,10 +53,7 @@ export function QuizResults({ results, answeredCount, priorityCount, onRestart }
             >
               {MEDALS[i] || i + 1}
             </div>
-            <div
-              className="size-3.5 shrink-0 rounded-full"
-              style={{ backgroundColor: c.color }}
-            />
+            <div className="size-3.5 shrink-0 rounded-full" style={{ backgroundColor: c.color }} />
             <div className="min-w-0 flex-1">
               <div className="text-[15px] font-bold text-ink">{c.name}</div>
               <div className="text-[12px] text-ink-light">{c.party}</div>
