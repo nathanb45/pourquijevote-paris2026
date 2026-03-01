@@ -36,7 +36,9 @@ export function QuizResults({
 
   return (
     <div className="mx-auto max-w-[700px] px-6 pb-20 pt-12">
-      <h2 className="mb-2 font-serif text-[32px] text-ink">Vos résultats</h2>
+      <h2 className="mb-2 font-sans text-[28px] font-black tracking-tight text-ink">
+        Vos résultats
+      </h2>
       <p className="mb-9 text-[14px] text-ink-light">{subtitle}</p>
 
       <div ref={listRef} className="flex flex-col gap-3">
