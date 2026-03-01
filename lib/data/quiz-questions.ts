@@ -10,7 +10,7 @@ export const QUESTIONS: QuizQuestion[] = [
     positions: { gregoire: 0, knafo: 1, bournazel: 1, dati: 1, mariani: 1, chikirou: -1 },
     context: {
       description:
-        "Paris dispose d'environ 4 000 caméras gérées par la Préfecture de Police sur la voie publique, auxquelles s'ajoutent 1 400 caméras municipales sur les équipements de la Ville. La gestion est partagée entre l'État via la Préfecture de Police et la mairie. En densité, Paris compte 15 caméras par km², contre 440 à Londres et 4 à Madrid. En nombre par habitant, Paris affiche 4 caméras pour 1 000 habitants, contre 68 à Londres et 4,4 à Madrid.",
+        "Paris dispose d'environ 4 000 caméras gérées par la Préfecture de Police sur la voie publique, auxquelles s'ajoutent 1 400 caméras municipales sur les équipements de la Ville. La gestion est partagée entre l'État via la Préfecture de Police et la mairie. En densité, Paris compte 15 caméras par km², contre 440 à Londres et 4 à Madrid. En nombre par habitant, Paris affiche 4 caméras pour 1 000 habitants, contre 68 à Londres.",
       pour: [
         'Effet dissuasif documenté sur certains délits : vols à la tire, dégradations.',
         "Facilite l'identification de suspects après un crime et accélère les enquêtes.",
