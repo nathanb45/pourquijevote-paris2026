@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -45,43 +45,43 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  --color-navy: #0D1F3C;
-  --color-red-accent: #FF4242;
+  --color-navy: #0d1f3c;
+  --color-red-accent: #ff4242;
   --color-ink: #111111;
   --color-ink-mid: #555555;
   --color-ink-light: #999999;
-  --color-beige: #F7F6F2;
-  --color-beige-border: #E5E3DC;
-  --color-analysis-bg: #FFF8E7;
-  --color-analysis-border: #F5A623;
-  --color-analysis-text: #5C4A1E;
-  --color-green: #22863A;
+  --color-beige: #f7f6f2;
+  --color-beige-border: #e5e3dc;
+  --color-analysis-bg: #fff8e7;
+  --color-analysis-border: #f5a623;
+  --color-analysis-text: #5c4a1e;
+  --color-green: #22863a;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: #F7F6F2;
+  --background: #f7f6f2;
   --foreground: #111111;
-  --card: #FFFFFF;
+  --card: #ffffff;
   --card-foreground: #111111;
-  --popover: #FFFFFF;
+  --popover: #ffffff;
   --popover-foreground: #111111;
-  --primary: #0D1F3C;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F0EFE9;
+  --primary: #0d1f3c;
+  --primary-foreground: #ffffff;
+  --secondary: #f0efe9;
   --secondary-foreground: #111111;
-  --muted: #F0EFE9;
+  --muted: #f0efe9;
   --muted-foreground: #999999;
-  --accent: #FF4242;
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF4242;
-  --border: #E5E3DC;
-  --input: #E5E3DC;
-  --ring: #0D1F3C;
-  --chart-1: #E91E8C;
-  --chart-2: #1A237E;
-  --chart-3: #FF8C00;
-  --chart-4: #0066CC;
+  --accent: #ff4242;
+  --accent-foreground: #ffffff;
+  --destructive: #ff4242;
+  --border: #e5e3dc;
+  --input: #e5e3dc;
+  --ring: #0d1f3c;
+  --chart-1: #e91e8c;
+  --chart-2: #1a237e;
+  --chart-3: #ff8c00;
+  --chart-4: #0066cc;
   --chart-5: #003189;
 }
 
@@ -108,7 +108,9 @@
 }
 
 @keyframes bounce-dot {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     transform: translateY(0);
     opacity: 0.4;
   }
