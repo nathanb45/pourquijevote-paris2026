@@ -41,12 +41,12 @@ Ouvrir [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Commande | Description |
-|---|---|
-| `bun dev` | Serveur de dev |
-| `bun run build` | Build production |
-| `bun run lint` | ESLint |
-| `bun run format` | Prettier |
+| Commande           | Description               |
+| ------------------ | ------------------------- |
+| `bun dev`          | Serveur de dev            |
+| `bun run build`    | Build production          |
+| `bun run lint`     | ESLint                    |
+| `bun run format`   | Prettier                  |
 | `bun run post-gen` | Format + lint fix + build |
 
 ## Stack

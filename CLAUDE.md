@@ -87,6 +87,7 @@ Before implementing anything that involves a library (Next.js, React, Tailwind, 
 ### Existing Design System
 
 Do NOT change these unless explicitly asked:
+
 - **Colors:** Navy (#0D1F3C), Red accent (#FF4242), Beige (#F7F6F2), Ink dark/mid/light
 - **Fonts:** DM Sans (body), DM Serif Display (headings)
 - **Border radius:** 0.625rem base
@@ -94,6 +95,7 @@ Do NOT change these unless explicitly asked:
 ### No Wild Dependencies
 
 Do not install new packages without asking the user first. Especially:
+
 - No new CSS/UI frameworks
 - No state management libraries (no Redux, Zustand, Jotai)
 - No new animation libraries (use Tailwind animations or CSS)
@@ -160,6 +162,7 @@ When building or modifying UI, follow these principles to create distinctive, po
 ### Design Thinking
 
 Before coding UI, consider:
+
 - **Purpose**: What problem does this interface solve? Who uses it?
 - **Tone**: Commit to a clear aesthetic direction that fits the project (this project: clean, editorial, civic — not flashy startup or corporate)
 - **Differentiation**: What makes this memorable?
