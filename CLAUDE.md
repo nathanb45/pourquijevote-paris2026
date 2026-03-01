@@ -23,6 +23,7 @@ Package manager is **Bun** (not npm/yarn). Never use npm or yarn.
 - **`app/`** — Next.js App Router pages and API routes
   - `page.tsx` — Home/chat page
   - `quiz/page.tsx` — Quiz page
+  - `test/page.tsx` — Sandbox page for testing design components/functions (never delete the placeholder div, only add below it)
   - `api/chat/route.ts` — Streaming Claude API endpoint (uses prompt caching via `anthropic-beta` header, system prompt from `system_prompt.md`)
 - **`components/`** — Feature-based organization
   - `chat/` — Chat UI (candidate cards, analysis boxes, suggested/follow-up questions)
