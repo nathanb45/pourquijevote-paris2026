@@ -16,9 +16,9 @@ const dmSerif = DM_Serif_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'PourquoiVoter.fr · Paris 2026',
+  title: 'Pour qui Paris ? · Municipales 2026',
   description:
-    'Comparez les programmes des candidats aux municipales de Paris 2026. Neutre et factuel.',
+    'Découvrez quel candidat aux municipales de Paris 2026 correspond le mieux à vos convictions.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
