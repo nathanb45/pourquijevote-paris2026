@@ -10,6 +10,11 @@ export interface QuizQuestion {
   theme: string
   text: string
   positions: Record<string, -1 | 0 | 1>
+  context: {
+    description: string
+    pour: string[]
+    contre: string[]
+  }
 }
 
 export interface QuizAnswer {

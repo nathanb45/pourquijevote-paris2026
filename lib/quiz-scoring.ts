@@ -26,9 +26,10 @@ export function computeScores(
   return candidates
     .map((c) => ({
       ...c,
-      score: scores[c.id].maxPoints > 0
-        ? Math.round((scores[c.id].points / scores[c.id].maxPoints) * 100)
-        : 0,
+      score:
+        scores[c.id].maxPoints > 0
+          ? Math.round((scores[c.id].points / scores[c.id].maxPoints) * 100)
+          : 0,
     }))
     .sort((a, b) => b.score - a.score)
 }
