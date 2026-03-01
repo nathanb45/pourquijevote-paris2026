@@ -21,9 +21,7 @@ export function CandidateCard({ candidate }: { candidate: CandidateResponse }) {
         style={{ backgroundColor: candidate.color || '#333' }}
       >
         <div>
-          <div className="text-[13.5px] font-bold leading-tight text-white">
-            {candidate.name}
-          </div>
+          <div className="text-[13.5px] font-bold leading-tight text-white">{candidate.name}</div>
           <div className="text-[11px] font-medium text-white/75">{candidate.party}</div>
         </div>
         <div className="flex size-[38px] shrink-0 items-center justify-center rounded-full bg-white/20 text-[14px] font-bold text-white">

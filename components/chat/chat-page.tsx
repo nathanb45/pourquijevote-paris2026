@@ -107,10 +107,7 @@ export function ChatPage() {
         setApiMessages((prev) => [...prev, { role: 'assistant', content: '{' + fullText }])
       } catch (err) {
         if ((err as Error).name !== 'AbortError') {
-          setMessages((prev) => [
-            ...prev,
-            { role: 'assistant', content: '', parsed: null },
-          ])
+          setMessages((prev) => [...prev, { role: 'assistant', content: '', parsed: null }])
         }
       } finally {
         setIsLoading(false)

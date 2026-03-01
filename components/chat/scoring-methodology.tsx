@@ -16,7 +16,7 @@ export function ScoringMethodology() {
           <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-4 px-6 pb-4 md:grid-cols-2">
             <div className="rounded-lg border border-beige-border bg-white p-4">
               <div className="mb-2 text-[11px] font-bold uppercase tracking-wider text-ink-mid">
-                ★ Concrète (0-5) — critères objectifs
+                ★ Concrète (0-5) : critères objectifs
               </div>
               <ul className="flex flex-col gap-1">
                 {[
@@ -26,10 +26,7 @@ export function ScoringMethodology() {
                   'Chiffre le coût ou le budget',
                   "S'appuie sur un cadre légal existant",
                 ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-1.5 text-[12px] leading-relaxed text-ink-mid"
-                  >
+                  <li key={item} className="flex gap-1.5 text-[12px] leading-relaxed text-ink-mid">
                     <span className="shrink-0 font-bold text-ink-light">+1</span>
                     {item}
                   </li>
@@ -38,7 +35,7 @@ export function ScoringMethodology() {
             </div>
             <div className="rounded-lg border border-beige-border bg-white p-4">
               <div className="mb-2 text-[11px] font-bold uppercase tracking-wider text-ink-mid">
-                ★ Réaliste (0-5) — faits vérifiables
+                ★ Réaliste (0-5) : faits vérifiables
               </div>
               <ul className="flex flex-col gap-1">
                 {[
@@ -48,10 +45,7 @@ export function ScoringMethodology() {
                   "Aucune institution n'a contesté ce type de mesure",
                   "Ne nécessite pas de négociation avec l'État",
                 ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex gap-1.5 text-[12px] leading-relaxed text-ink-mid"
-                  >
+                  <li key={item} className="flex gap-1.5 text-[12px] leading-relaxed text-ink-mid">
                     <span className="shrink-0 font-bold text-ink-light">+1</span>
                     {item}
                   </li>
