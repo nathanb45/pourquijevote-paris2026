@@ -32,17 +32,7 @@ export function Header() {
           </Link>
         </div>
 
-        <div className="hidden flex-wrap justify-end gap-1.5 md:flex">
-          {CANDIDATES.map((c) => (
-            <span
-              key={c.id}
-              className="rounded-full px-2.5 py-0.5 text-[11px] font-medium text-white opacity-90"
-              style={{ backgroundColor: c.color }}
-            >
-              {c.name.split(' ').pop()}
-            </span>
-          ))}
-        </div>
+        <span className="font-serif text-[32px] font-bold italic text-white/75">Édition 2026</span>
       </div>
     </header>
   )
