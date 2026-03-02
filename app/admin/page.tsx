@@ -1,6 +1,6 @@
 import { db } from '@/lib/db'
 import { quizAnswers, quizQuestions, quizSessions } from '@/lib/db/schema'
-import { count, eq, isNull, max, sql } from 'drizzle-orm'
+import { count, eq, isNull, sql } from 'drizzle-orm'
 import {
   Table,
   TableBody,
@@ -33,16 +33,18 @@ async function getStats() {
     .groupBy(quizAnswers.questionId, quizAnswers.value)
     .orderBy(quizAnswers.questionId, quizAnswers.value)
 
-  const dropOff = await db
-    .select({
-      lastQuestion: max(quizAnswers.questionId),
-      sessions: count(),
-    })
-    .from(quizAnswers)
-    .innerJoin(quizSessions, eq(quizAnswers.sessionId, quizSessions.id))
-    .where(isNull(quizSessions.completedAt))
-    .groupBy(sql`1`)
-    .orderBy(max(quizAnswers.questionId))
+  const dropOff = await db.execute<{ last_question: number; sessions: number }>(sql`
+    SELECT last_question, COUNT(*)::int AS sessions
+    FROM (
+      SELECT qa.session_id, MAX(qa.question_id) AS last_question
+      FROM quiz_answers qa
+      INNER JOIN quiz_sessions qs ON qs.id = qa.session_id
+      WHERE qs.completed_at IS NULL
+      GROUP BY qa.session_id
+    ) sub
+    GROUP BY last_question
+    ORDER BY last_question
+  `)
 
   return { sessionStats, questions, answerDistribution, dropOff }
 }
