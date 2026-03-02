@@ -1,4 +1,7 @@
+import React from 'react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import { CANDIDATES } from '@/lib/data/candidates'
 
 interface QuizIntroProps {
   onStart: () => void
@@ -9,9 +12,41 @@ export function QuizIntro({ onStart }: QuizIntroProps) {
     <section className="relative flex min-h-[calc(100dvh-110px)] flex-col items-center justify-center overflow-hidden bg-navy px-6 py-20">
       {/* Background decorative text */}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.02]">
-        <span className="whitespace-nowrap font-serif text-[300px] text-white lg:text-[500px]">
+        <span className="whitespace-nowrap font-serif text-[38vw] text-white lg:text-[500px]">
           PARIS
         </span>
+      </div>
+
+      {/* Candidate portraits strip */}
+      <div className="absolute inset-x-0 top-10 flex items-end justify-center gap-4 opacity-60">
+        {CANDIDATES.map((c) => (
+          <div key={c.id} className="flex flex-col items-center gap-1">
+            <div
+              className="size-9 overflow-hidden rounded-full ring-1"
+              style={{ '--tw-ring-color': c.color } as React.CSSProperties}
+            >
+              {c.photo ? (
+                <Image
+                  src={c.photo}
+                  alt={c.name}
+                  width={36}
+                  height={36}
+                  className="size-full object-cover object-top"
+                />
+              ) : (
+                <div
+                  className="flex size-full items-center justify-center text-[10px] font-bold text-white"
+                  style={{ backgroundColor: c.color }}
+                >
+                  {c.name.split(' ').pop()?.[0]}
+                </div>
+              )}
+            </div>
+            <span className="text-[9px] tracking-wide text-white/30">
+              {c.name.split(' ').pop()}
+            </span>
+          </div>
+        ))}
       </div>
 
       {/* Municipales line — full width */}
