@@ -21,7 +21,7 @@ export function Header() {
             <div className="pb-0.5 leading-none">
               <div className="font-serif text-[46px] leading-none text-white">
                 <span className="relative">
-                  <span className="absolute left-1/2 -top-[22px] -translate-x-1/2 whitespace-nowrap font-sans text-[15px] font-light italic text-white/40">
+                  <span className="absolute left-1/2 -top-[14px] -translate-x-1/2 whitespace-nowrap font-sans text-[15px] font-light italic text-white/40">
                     pour qui
                   </span>
                   Paris
