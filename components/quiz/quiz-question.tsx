@@ -1,7 +1,19 @@
 'use client'
 
 import { useState } from 'react'
+import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/components/ui/alert-dialog'
 import { Progress } from '@/components/ui/progress'
 import type { QuizQuestion as QuizQuestionType, QuizAnswer } from '@/lib/types'
 
@@ -16,6 +28,7 @@ interface QuizQuestionProps {
   onTogglePriority: () => void
   onPrev: () => void
   onNext: () => void
+  onBackToMenu: () => void
   isFirst: boolean
   isLast: boolean
 }
@@ -114,13 +127,40 @@ export function QuizQuestion({
   onTogglePriority,
   onPrev,
   onNext,
+  onBackToMenu,
   isFirst,
   isLast,
 }: QuizQuestionProps) {
   const progress = ((index + 1) / total) * 100
 
   return (
-    <div className="flex min-h-[calc(100vh-56px)] flex-col items-center bg-navy px-4 pb-16 pt-10">
+    <div className="flex min-h-dvh flex-col items-center bg-navy px-4 pb-16 pt-10">
+      {/* Back to menu */}
+      <div className="mb-6 w-full max-w-[760px]">
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <button className="flex cursor-pointer items-center gap-1.5 text-[13px] text-white/50 transition-colors hover:text-white/80">
+              <ArrowLeft className="size-3.5" />
+              Retour au menu
+            </button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Quitter le quiz ?</AlertDialogTitle>
+              <AlertDialogDescription>
+                Vos réponses en cours seront perdues et le quiz reprendra depuis le début.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Continuer le quiz</AlertDialogCancel>
+              <AlertDialogAction variant="destructive" onClick={onBackToMenu}>
+                Quitter
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      </div>
+
       {/* Title */}
       <div className="mb-6 text-center">
         <h1 className="font-sans text-[30px] font-black tracking-tight text-white lg:text-[40px]">
