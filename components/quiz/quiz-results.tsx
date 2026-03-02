@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts'
 import { Button } from '@/components/ui/button'
@@ -23,6 +24,16 @@ interface QuizResultsProps {
 }
 
 const MEDALS = ['🥇', '🥈', '🥉']
+
+function initials(name: string) {
+  return name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase()
+}
 
 export function QuizResults({
   results,
@@ -82,9 +93,26 @@ export function QuizResults({
                   {MEDALS[i] || i + 1}
                 </div>
                 <div
-                  className="size-3.5 shrink-0 rounded-full"
-                  style={{ backgroundColor: c.color }}
-                />
+                  className="size-10 shrink-0 overflow-hidden rounded-full ring-2"
+                  style={{ '--tw-ring-color': c.color } as React.CSSProperties}
+                >
+                  {c.photo ? (
+                    <Image
+                      src={c.photo}
+                      alt={c.name}
+                      width={40}
+                      height={40}
+                      className="size-full object-cover object-top"
+                    />
+                  ) : (
+                    <div
+                      className="flex size-full items-center justify-center text-[12px] font-bold text-white"
+                      style={{ backgroundColor: c.color }}
+                    >
+                      {initials(c.name)}
+                    </div>
+                  )}
+                </div>
                 <div className="min-w-0 flex-1">
                   <div className="text-[15px] font-bold text-ink">{c.name}</div>
                   <div className="text-[12px] text-ink-light">{c.party}</div>
