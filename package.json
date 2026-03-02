@@ -8,10 +8,16 @@
     "start": "next start",
     "format": "prettier --write .",
     "lint": "eslint",
-    "post-gen": "bun run format && bun run lint . --fix && bun run build"
+    "post-gen": "bun run format && bun run lint . --fix && bun run build",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:seed": "bun run lib/db/seed.ts",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",
+    "@neondatabase/serverless": "^1.0.2",
     "@streamdown/cjk": "^1.0.2",
     "@streamdown/code": "^1.0.3",
     "@streamdown/math": "^1.0.2",
@@ -20,6 +26,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "drizzle-orm": "^0.45.1",
     "lucide-react": "^0.576.0",
     "nanoid": "^5.1.6",
     "next": "16.1.6",
@@ -36,6 +43,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "drizzle-kit": "^0.31.9",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "prettier": "^3.8.1",
