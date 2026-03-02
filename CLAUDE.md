@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-"Pour qui je vote ?" — a Paris 2026 municipal election tool with two features: an AI chat interface (Claude-powered) for candidate analysis, and a political alignment quiz. Built with Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4, and shadcn/ui.
+"Pour qui je vote ?" — a Paris 2026 municipal election tool with two features: an AI chat interface (Claude-powered) for candidate analysis, and a political alignment quiz. Built with Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4, shadcn/ui, Drizzle ORM, and Neon Postgres.
 
 ## Commands
 
@@ -14,6 +14,9 @@ bun run build    # Production build
 bun run lint     # ESLint
 bun run format   # Prettier format all files
 bun start        # Start production server
+bun run db:push  # Push Drizzle schema to Neon
+bun run db:seed  # Seed questions from static data
+bun run db:studio # Open Drizzle Studio
 ```
 
 Package manager is **Bun** (not npm/yarn). Never use npm or yarn.
@@ -21,10 +24,13 @@ Package manager is **Bun** (not npm/yarn). Never use npm or yarn.
 ## Architecture
 
 - **`app/`** — Next.js App Router pages and API routes
-  - `page.tsx` — Home/chat page
-  - `quiz/page.tsx` — Quiz page
+  - `page.tsx` — Home/quiz page
   - `test/page.tsx` — Sandbox page for testing design components/functions (never delete the placeholder div, only add below it)
+  - `admin/page.tsx` — Dev-only analytics dashboard (gated by `NODE_ENV`)
   - `api/chat/route.ts` — Streaming Claude API endpoint (uses prompt caching via `anthropic-beta` header, system prompt from `system_prompt.md`)
+  - `api/quiz/questions/route.ts` — GET quiz questions from DB
+  - `api/quiz/sessions/route.ts` — POST create session, PATCH mark complete
+  - `api/quiz/answers/route.ts` — POST record answer (upsert)
 - **`components/`** — Feature-based organization
   - `chat/` — Chat UI (candidate cards, analysis boxes, suggested/follow-up questions)
   - `quiz/` — Quiz flow (intro → questions → results with scoring)
@@ -32,7 +38,10 @@ Package manager is **Bun** (not npm/yarn). Never use npm or yarn.
   - `ui/` — shadcn/ui components (new-york style)
 - **`lib/`** — Utilities and data
   - `data/candidates.ts` — 6 Paris 2026 candidates
-  - `data/quiz-questions.ts` — Questions with candidate positions
+  - `data/quiz-questions.ts` — Questions with candidate positions (also used as fallback if DB is down)
+  - `db/schema.ts` — Drizzle schema (quiz_questions, quiz_sessions, quiz_answers)
+  - `db/index.ts` — Drizzle client (Neon HTTP driver)
+  - `db/seed.ts` — Seed script: inserts static questions into DB
   - `quiz-scoring.ts` — Weighted scoring algorithm (priority-based, normalized 0-100%)
   - `types.ts` — Shared TypeScript interfaces
 
@@ -40,13 +49,14 @@ Package manager is **Bun** (not npm/yarn). Never use npm or yarn.
 
 - Server Components by default; `'use client'` only for interactive components
 - Chat API streams JSON responses from Claude, parsed and rendered client-side
-- Quiz uses local React state (no global store): view transitions, answer accumulation, then scoring
+- Quiz uses local React state (no global store): view transitions, answer accumulation, then scoring. Questions fetched from DB with static fallback. Each answer is fire-and-forget tracked to DB
 - Path alias: `@/*` maps to project root
 - All UI text must be in **French**
 
 ## Environment Variables
 
 - `ANTHROPIC_API_KEY` — Required for the chat API route
+- `DATABASE_URL` — Neon Postgres connection string (required for quiz analytics + admin)
 
 ## Code Style
 
@@ -122,8 +132,10 @@ The project structure is **locked**. Do not create new folders or files outside 
 - `components/ui/` — shadcn components ONLY (via `bunx shadcn@latest add`)
 - `app/` — pages and layouts (ask before adding new routes)
 - `app/api/` — API routes (ask before adding new endpoints)
+- `app/admin/` — Admin pages (dev-only)
 - `lib/` — utilities and helpers
 - `lib/data/` — static data files
+- `lib/db/` — Drizzle schema, client, seed script
 - `public/` — static assets
 
 **Forbidden without asking:**
