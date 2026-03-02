@@ -3,6 +3,7 @@ export interface Candidate {
   name: string
   party: string
   color: string
+  photo?: string
 }
 
 export interface QuizQuestion {
