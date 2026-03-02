@@ -26,6 +26,12 @@ export interface QuizResult extends Candidate {
   score: number
 }
 
+export interface ThemeScore {
+  theme: string
+  candidate1: number
+  candidate2: number
+}
+
 export interface ChatMessage {
   role: 'user' | 'assistant'
   content: string
