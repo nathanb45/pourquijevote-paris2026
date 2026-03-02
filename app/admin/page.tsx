@@ -1,6 +1,6 @@
 import { db } from '@/lib/db'
 import { quizAnswers, quizQuestions, quizSessions } from '@/lib/db/schema'
-import { count, eq, isNull, sql } from 'drizzle-orm'
+import { count, sql } from 'drizzle-orm'
 import {
   Table,
   TableBody,
@@ -132,7 +132,7 @@ export default async function AdminPage() {
         </CardContent>
       </Card>
 
-      {dropOff.length > 0 && (
+      {Array.isArray(dropOff) && dropOff.length > 0 && (
         <Card>
           <CardHeader>
             <CardTitle>Drop-off (sessions non completees)</CardTitle>
@@ -146,12 +146,12 @@ export default async function AdminPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {dropOff.map((row) => {
-                  const q = questions.find((q) => q.id === Number(row.lastQuestion))
+                {(dropOff as { last_question: number; sessions: number }[]).map((row) => {
+                  const q = questions.find((q) => q.id === Number(row.last_question))
                   return (
-                    <TableRow key={row.lastQuestion}>
+                    <TableRow key={row.last_question}>
                       <TableCell>
-                        <span className="font-mono">Q{row.lastQuestion}</span>
+                        <span className="font-mono">Q{row.last_question}</span>
                         {q && (
                           <span className="ml-2 text-sm text-ink-mid">
                             — {q.text.slice(0, 60)}...
