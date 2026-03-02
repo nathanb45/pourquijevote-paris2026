@@ -5,26 +5,6 @@ import type { QuizQuestion } from '@/lib/types'
 export const QUESTIONS: QuizQuestion[] = [
   {
     id: 1,
-    theme: 'Sécurité',
-    text: "La Ville de Paris doit étendre son réseau de vidéosurveillance dans l'espace public.",
-    positions: { gregoire: 0, knafo: 1, bournazel: 1, dati: 1, mariani: 1, chikirou: -1 },
-    context: {
-      description:
-        "Paris dispose d'environ 4 000 caméras gérées par la Préfecture de Police sur la voie publique, auxquelles s'ajoutent 1 400 caméras municipales sur les équipements de la Ville. La gestion est partagée entre l'État via la Préfecture de Police et la mairie. En densité, Paris compte 15 caméras par km², contre 440 à Londres et 4 à Madrid. En nombre par habitant, Paris affiche 4 caméras pour 1 000 habitants, contre 68 à Londres.",
-      pour: [
-        'Effet dissuasif documenté sur certains délits : vols à la tire, dégradations.',
-        "Facilite l'identification de suspects après un crime et accélère les enquêtes.",
-        'Déjà déployée massivement dans les transports en commun avec des résultats mesurables sur la sécurité.',
-      ],
-      contre: [
-        "L'effet sur la baisse globale de la criminalité reste scientifiquement contesté, peu d'études prouvent un lien direct.",
-        "Coût élevé : entre 15 000 et 25 000€ par caméra à l'installation, hors maintenance.",
-        "La compétence appartient largement à l'État via la Préfecture, la marge de manœuvre du maire est donc limitée.",
-      ],
-    },
-  },
-  {
-    id: 2,
     theme: 'Logement',
     text: 'La location de logements de courte durée (type Airbnb) doit être interdite à Paris.',
     positions: { gregoire: 1, knafo: -1, bournazel: 0, dati: 0, mariani: 0, chikirou: 1 },
@@ -44,42 +24,62 @@ export const QUESTIONS: QuizQuestion[] = [
     },
   },
   {
-    id: 3,
-    theme: 'Logement',
-    text: 'La Ville de Paris doit augmenter la part de logements sociaux dans ses nouveaux programmes de construction.',
-    positions: { gregoire: 1, knafo: 0, bournazel: 0, dati: -1, mariani: -1, chikirou: 1 },
+    id: 2,
+    theme: 'Sécurité',
+    text: "La Ville de Paris doit étendre son réseau de vidéosurveillance dans l'espace public.",
+    positions: { gregoire: 0, knafo: 1, bournazel: 1, dati: 1, mariani: 1, chikirou: -1 },
     context: {
       description:
-        "Paris compte aujourd'hui environ 270 000 logements sociaux, soit 25% du parc total. La loi SRU impose un minimum de 25% de logements sociaux dans les communes de plus de 3 500 habitants. Paris est donc dans les clous légaux, mais 270 000 ménages sont actuellement sur liste d'attente pour un logement social à Paris, avec un délai moyen d'attente de 11 ans.",
+        "Paris dispose d'environ 4 000 caméras gérées par la Préfecture de Police sur la voie publique, auxquelles s'ajoutent 1 400 caméras municipales sur les équipements de la Ville. La gestion est partagée entre l'État via la Préfecture de Police et la mairie. En densité, Paris compte 15 caméras par km², contre 440 à Londres et 4 à Madrid. En nombre par habitant, Paris affiche 4 caméras pour 1 000 habitants, contre 68 à Londres.",
       pour: [
-        "La liste d'attente de 270 000 ménages illustre un besoin réel non satisfait par le marché privé.",
-        'Permet de maintenir une mixité sociale dans une ville où le prix moyen au m² dépasse 10 000€.',
-        "Les logements sociaux sont soumis à l'encadrement des loyers, ce qui tire mécaniquement les loyers du voisinage vers le bas.",
+        'Effet dissuasif documenté sur certains délits : vols à la tire, dégradations.',
+        "Facilite l'identification de suspects après un crime et accélère les enquêtes.",
+        'Déjà déployée massivement dans les transports en commun avec des résultats mesurables sur la sécurité.',
       ],
       contre: [
-        "Paris manque de foncier disponible : construire plus implique de densifier davantage ou de démolir de l'existant.",
-        'Un logement social coûte en moyenne 150 000€ à construire pour la collectivité, ce qui pèse lourd sur le budget municipal.',
-        'Certains économistes estiment que libérer le marché privé et faciliter la construction libre serait plus efficace pour faire baisser les loyers.',
+        "L'effet sur la baisse globale de la criminalité reste scientifiquement contesté, peu d'études prouvent un lien direct.",
+        "Coût élevé : entre 15 000 et 25 000€ par caméra à l'installation, hors maintenance.",
+        "La compétence appartient largement à l'État via la Préfecture, la marge de manœuvre du maire est donc limitée.",
+      ],
+    },
+  },
+  {
+    id: 3,
+    theme: 'Services',
+    text: 'La Ville de Paris doit confier le nettoyage des rues à des prestataires privés.',
+    positions: { gregoire: -1, knafo: 1, bournazel: 1, dati: 0, mariani: 0, chikirou: -1 },
+    context: {
+      description:
+        "La propreté des rues de Paris est assurée par la Direction de la Propreté et de l'Eau (DPE), qui emploie environ 7 000 agents municipaux. Le budget annuel consacré à la propreté dépasse 600 millions d'euros. Paris est régulièrement classée parmi les capitales européennes les moins bien notées sur la propreté par les voyageurs étrangers. Certaines prestations sont déjà partiellement externalisées, notamment le nettoiement de certains marchés et événements. Plusieurs grandes villes françaises comme Lyon ou Bordeaux ont choisi un modèle mixte public-privé.",
+      pour: [
+        'Les villes ayant externalisé tout ou partie du nettoiement ont pu introduire des obligations de résultat contractuelles absentes dans la gestion publique directe.',
+        "La mise en concurrence de prestataires permet théoriquement de réduire les coûts ou d'améliorer la qualité pour un budget équivalent.",
+        "Un prestataire privé peut être sanctionné ou remplacé en cas de mauvaise performance, ce qui n'est pas possible avec des agents titulaires.",
+      ],
+      contre: [
+        "Les expériences d'externalisation dans d'autres villes montrent que les économies initiales sont souvent absorbées par les coûts de contrôle et de gestion des contrats.",
+        'La privatisation fragilise les conditions de travail des agents, souvent requalifiés en employés précaires chez le prestataire.',
+        'La propreté est un service dont la qualité varie fortement selon les quartiers : un prestataire privé tend à concentrer ses efforts sur les zones les plus visibles au détriment des quartiers populaires.',
       ],
     },
   },
   {
     id: 4,
-    theme: 'Logement',
-    text: "Paris doit renforcer l'encadrement des loyers dans le parc locatif privé.",
-    positions: { gregoire: 1, knafo: -1, bournazel: 0, dati: -1, mariani: -1, chikirou: 1 },
+    theme: 'Patrimoine',
+    text: 'La Ville de Paris doit vendre le Parc des Princes au Paris Saint-Germain.',
+    positions: { gregoire: -1, knafo: 1, bournazel: 1, dati: 1, mariani: -1, chikirou: -1 },
     context: {
       description:
-        "Paris applique l'encadrement des loyers depuis 2019. Le dispositif fixe un loyer de référence par type de logement et par quartier, avec un plafond à 20% au-dessus de ce référence. En 2023, la DRIHL estimait que 30 à 40% des annonces dépassaient encore ce plafond. Les propriétaires contrevenants s'exposent à une amende maximale de 5 000€ pour un particulier et 15 000€ pour une personne morale. Le contrôle repose principalement sur les locataires eux-mêmes qui doivent saisir une commission.",
+        "Le Parc des Princes est propriété de la Ville de Paris depuis 1972. Le PSG en est locataire et verse un loyer annuel d'environ 2,5 millions d'euros. Le stade a une capacité de 47 929 places et date de 1972. Le PSG souhaite devenir propriétaire pour financer des travaux d'agrandissement et de modernisation, sans lesquels il envisage de construire un nouveau stade en banlieue, notamment à Massy ou Poissy. La valeur théorique du stade est estimée à plus d'un milliard d'euros par certains experts, mais les offres évoquées du côté qatari seraient autour de 40 à 50 millions d'euros, soit un écart considérable. Le Conseil de Paris a voté en 2023 la patrimonialisation du stade, ce qui complique juridiquement une vente.",
       pour: [
-        'Protège directement les locataires les plus fragiles dans un marché où le loyer moyen dépasse 30€ par m².',
-        'Berlin, qui a expérimenté un dispositif similaire, a observé une stabilisation des loyers dans les zones concernées.',
-        "Le taux élevé de non-conformité actuel suggère que le dispositif existe mais manque de moyens d'application.",
+        "Vendre permettrait de garder le PSG à Paris et d'éviter un déménagement en banlieue qui priverait la ville d'un club emblématique et de ses retombées économiques.",
+        "Un accord de vente pourrait inclure des contreparties pour les Parisiens : rénovation d'équipements sportifs de proximité, espaces verts, accès public au site.",
+        'Le PSG propriétaire pourrait investir massivement dans la rénovation du stade sans dépendre du budget municipal.',
       ],
       contre: [
-        "Plusieurs études économiques montrent que l'encadrement strict réduit l'offre locative : certains propriétaires préfèrent vendre ou laisser vacant plutôt que louer à perte.",
-        "Le contrôle est aujourd'hui quasi inexistant faute d'inspecteurs : renforcer le cadre sans renforcer les moyens de contrôle ne changerait rien.",
-        "Risque de dégradation du parc locatif privé si les propriétaires n'ont plus les moyens d'entretenir leurs biens avec des loyers plafonnés.",
+        "L'écart entre la valeur réelle du stade et le prix proposé par le PSG est abyssal, ce qui soulève des questions sur la rentabilité de l'opération pour la Ville.",
+        "Vendre un équipement public financé par les contribuables à un club détenu par un fonds souverain étranger pose la question de l'intérêt général.",
+        "Une fois vendu, la Ville perd tout contrôle sur l'usage du site et sur son avenir en cas de revente ou de départ du club.",
       ],
     },
   },
@@ -185,41 +185,41 @@ export const QUESTIONS: QuizQuestion[] = [
   },
   {
     id: 10,
-    theme: 'Services',
-    text: 'La Ville de Paris doit confier le nettoyage des rues à des prestataires privés.',
-    positions: { gregoire: -1, knafo: 1, bournazel: 1, dati: 0, mariani: 0, chikirou: -1 },
+    theme: 'Logement',
+    text: 'La Ville de Paris doit augmenter la part de logements sociaux dans ses nouveaux programmes de construction.',
+    positions: { gregoire: 1, knafo: 0, bournazel: 0, dati: -1, mariani: -1, chikirou: 1 },
     context: {
       description:
-        "La propreté des rues de Paris est assurée par la Direction de la Propreté et de l'Eau (DPE), qui emploie environ 7 000 agents municipaux. Le budget annuel consacré à la propreté dépasse 600 millions d'euros. Paris est régulièrement classée parmi les capitales européennes les moins bien notées sur la propreté par les voyageurs étrangers. Certaines prestations sont déjà partiellement externalisées, notamment le nettoiement de certains marchés et événements. Plusieurs grandes villes françaises comme Lyon ou Bordeaux ont choisi un modèle mixte public-privé.",
+        "Paris compte aujourd'hui environ 270 000 logements sociaux, soit 25% du parc total. La loi SRU impose un minimum de 25% de logements sociaux dans les communes de plus de 3 500 habitants. Paris est donc dans les clous légaux, mais 270 000 ménages sont actuellement sur liste d'attente pour un logement social à Paris, avec un délai moyen d'attente de 11 ans.",
       pour: [
-        'Les villes ayant externalisé tout ou partie du nettoiement ont pu introduire des obligations de résultat contractuelles absentes dans la gestion publique directe.',
-        "La mise en concurrence de prestataires permet théoriquement de réduire les coûts ou d'améliorer la qualité pour un budget équivalent.",
-        "Un prestataire privé peut être sanctionné ou remplacé en cas de mauvaise performance, ce qui n'est pas possible avec des agents titulaires.",
+        "La liste d'attente de 270 000 ménages illustre un besoin réel non satisfait par le marché privé.",
+        'Permet de maintenir une mixité sociale dans une ville où le prix moyen au m² dépasse 10 000€.',
+        "Les logements sociaux sont soumis à l'encadrement des loyers, ce qui tire mécaniquement les loyers du voisinage vers le bas.",
       ],
       contre: [
-        "Les expériences d'externalisation dans d'autres villes montrent que les économies initiales sont souvent absorbées par les coûts de contrôle et de gestion des contrats.",
-        'La privatisation fragilise les conditions de travail des agents, souvent requalifiés en employés précaires chez le prestataire.',
-        'La propreté est un service dont la qualité varie fortement selon les quartiers : un prestataire privé tend à concentrer ses efforts sur les zones les plus visibles au détriment des quartiers populaires.',
+        "Paris manque de foncier disponible : construire plus implique de densifier davantage ou de démolir de l'existant.",
+        'Un logement social coûte en moyenne 150 000€ à construire pour la collectivité, ce qui pèse lourd sur le budget municipal.',
+        'Certains économistes estiment que libérer le marché privé et faciliter la construction libre serait plus efficace pour faire baisser les loyers.',
       ],
     },
   },
   {
     id: 11,
-    theme: 'Patrimoine',
-    text: 'La Ville de Paris doit vendre le Parc des Princes au Paris Saint-Germain.',
-    positions: { gregoire: -1, knafo: 1, bournazel: 1, dati: 1, mariani: -1, chikirou: -1 },
+    theme: 'Logement',
+    text: "Paris doit renforcer l'encadrement des loyers dans le parc locatif privé.",
+    positions: { gregoire: 1, knafo: -1, bournazel: 0, dati: -1, mariani: -1, chikirou: 1 },
     context: {
       description:
-        "Le Parc des Princes est propriété de la Ville de Paris depuis 1972. Le PSG en est locataire et verse un loyer annuel d'environ 2,5 millions d'euros. Le stade a une capacité de 47 929 places et date de 1972. Le PSG souhaite devenir propriétaire pour financer des travaux d'agrandissement et de modernisation, sans lesquels il envisage de construire un nouveau stade en banlieue, notamment à Massy ou Poissy. La valeur théorique du stade est estimée à plus d'un milliard d'euros par certains experts, mais les offres évoquées du côté qatari seraient autour de 40 à 50 millions d'euros, soit un écart considérable. Le Conseil de Paris a voté en 2023 la patrimonialisation du stade, ce qui complique juridiquement une vente.",
+        "Paris applique l'encadrement des loyers depuis 2019. Le dispositif fixe un loyer de référence par type de logement et par quartier, avec un plafond à 20% au-dessus de ce référence. En 2023, la DRIHL estimait que 30 à 40% des annonces dépassaient encore ce plafond. Les propriétaires contrevenants s'exposent à une amende maximale de 5 000€ pour un particulier et 15 000€ pour une personne morale. Le contrôle repose principalement sur les locataires eux-mêmes qui doivent saisir une commission.",
       pour: [
-        "Vendre permettrait de garder le PSG à Paris et d'éviter un déménagement en banlieue qui priverait la ville d'un club emblématique et de ses retombées économiques.",
-        "Un accord de vente pourrait inclure des contreparties pour les Parisiens : rénovation d'équipements sportifs de proximité, espaces verts, accès public au site.",
-        'Le PSG propriétaire pourrait investir massivement dans la rénovation du stade sans dépendre du budget municipal.',
+        'Protège directement les locataires les plus fragiles dans un marché où le loyer moyen dépasse 30€ par m².',
+        'Berlin, qui a expérimenté un dispositif similaire, a observé une stabilisation des loyers dans les zones concernées.',
+        "Le taux élevé de non-conformité actuel suggère que le dispositif existe mais manque de moyens d'application.",
       ],
       contre: [
-        "L'écart entre la valeur réelle du stade et le prix proposé par le PSG est abyssal, ce qui soulève des questions sur la rentabilité de l'opération pour la Ville.",
-        "Vendre un équipement public financé par les contribuables à un club détenu par un fonds souverain étranger pose la question de l'intérêt général.",
-        "Une fois vendu, la Ville perd tout contrôle sur l'usage du site et sur son avenir en cas de revente ou de départ du club.",
+        "Plusieurs études économiques montrent que l'encadrement strict réduit l'offre locative : certains propriétaires préfèrent vendre ou laisser vacant plutôt que louer à perte.",
+        "Le contrôle est aujourd'hui quasi inexistant faute d'inspecteurs : renforcer le cadre sans renforcer les moyens de contrôle ne changerait rien.",
+        "Risque de dégradation du parc locatif privé si les propriétaires n'ont plus les moyens d'entretenir leurs biens avec des loyers plafonnés.",
       ],
     },
   },
