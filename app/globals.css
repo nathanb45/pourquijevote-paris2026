@@ -90,7 +90,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans overflow-x-hidden;
     font-size: 15px;
     line-height: 1.6;
   }
