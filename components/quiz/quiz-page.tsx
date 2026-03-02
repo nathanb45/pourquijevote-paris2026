@@ -3,7 +3,7 @@
 import { useCallback, useState } from 'react'
 import { CANDIDATES } from '@/lib/data/candidates'
 import { QUESTIONS } from '@/lib/data/quiz-questions'
-import { computeScores } from '@/lib/quiz-scoring'
+import { computeScores, computeThemeScores } from '@/lib/quiz-scoring'
 import type { QuizAnswer } from '@/lib/types'
 import { QuizIntro } from './quiz-intro'
 import { QuizQuestion } from './quiz-question'
@@ -67,12 +67,22 @@ export function QuizPage() {
     }
   }, [currentIndex])
 
+  const handleBackToMenu = useCallback(() => {
+    setAnswers({})
+    setCurrentIndex(0)
+    setView('intro')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
   const handleRestart = useCallback(() => {
     setView('intro')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
   const results = computeScores(CANDIDATES, QUESTIONS, answers)
+  const top1 = results[0]
+  const top2 = results[1]
+  const themeScores = computeThemeScores(QUESTIONS, answers, top1?.id ?? '', top2?.id ?? '')
   const answeredCount = Object.values(answers).filter((a) => a.value !== null).length
   const priorityCount = Object.values(answers).filter((a) => a.priority).length
 
@@ -84,6 +94,8 @@ export function QuizPage() {
     return (
       <QuizResults
         results={results}
+        themeScores={themeScores}
+        topCandidateNames={[top1?.name ?? '', top2?.name ?? '']}
         answeredCount={answeredCount}
         priorityCount={priorityCount}
         onRestart={handleRestart}
@@ -101,6 +113,7 @@ export function QuizPage() {
       onTogglePriority={handleTogglePriority}
       onPrev={handlePrev}
       onNext={handleNext}
+      onBackToMenu={handleBackToMenu}
       isFirst={currentIndex === 0}
       isLast={currentIndex === QUESTIONS.length - 1}
     />
