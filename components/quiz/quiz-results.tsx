@@ -2,11 +2,21 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts'
 import { Button } from '@/components/ui/button'
-import type { QuizResult } from '@/lib/types'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  type ChartConfig,
+} from '@/components/ui/chart'
+import type { QuizResult, ThemeScore } from '@/lib/types'
 
 interface QuizResultsProps {
   results: QuizResult[]
+  themeScores: ThemeScore[]
+  topCandidateNames: [string, string]
   answeredCount: number
   priorityCount: number
   onRestart: () => void
@@ -16,6 +26,8 @@ const MEDALS = ['🥇', '🥈', '🥉']
 
 export function QuizResults({
   results,
+  themeScores,
+  topCandidateNames,
   answeredCount,
   priorityCount,
   onRestart,
@@ -33,6 +45,17 @@ export function QuizResults({
       ? ` · ${priorityCount} sujet${priorityCount > 1 ? 's' : ''} prioritaire${priorityCount > 1 ? 's' : ''}`
       : ''
   }`
+
+  const chartConfig = {
+    candidate1: {
+      label: topCandidateNames[0],
+      color: '#0D1F3C',
+    },
+    candidate2: {
+      label: topCandidateNames[1],
+      color: '#7BA7D9',
+    },
+  } satisfies ChartConfig
 
   return (
     <div className="mx-auto max-w-[700px] px-6 pb-20 pt-12">
@@ -77,6 +100,62 @@ export function QuizResults({
           </div>
         ))}
       </div>
+
+      <Card className="mt-10 border-beige-border bg-white shadow-[0_2px_12px_rgba(0,0,0,0.07)]">
+        <CardHeader className="items-center pb-2">
+          <CardTitle className="font-sans text-[18px] font-bold text-ink">
+            Votre alignement par theme
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="pb-4">
+          <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[300px]">
+            <RadarChart data={themeScores}>
+              <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
+              <PolarAngleAxis
+                dataKey="theme"
+                tick={({ x, y, textAnchor, index, ...props }) => (
+                  <text
+                    x={x}
+                    y={index === 0 ? y - 10 : y}
+                    textAnchor={textAnchor}
+                    fontSize={12}
+                    fontWeight={600}
+                    fill="var(--color-ink-mid, #6B7280)"
+                    {...props}
+                  >
+                    {themeScores[index]?.theme}
+                  </text>
+                )}
+              />
+              <PolarGrid stroke="var(--color-beige-border, #E5E2DA)" />
+              <Radar
+                dataKey="candidate1"
+                fill="var(--color-candidate1)"
+                fillOpacity={0.35}
+                stroke="var(--color-candidate1)"
+                strokeWidth={2}
+              />
+              <Radar
+                dataKey="candidate2"
+                fill="var(--color-candidate2)"
+                fillOpacity={0.2}
+                stroke="var(--color-candidate2)"
+                strokeWidth={2}
+              />
+            </RadarChart>
+          </ChartContainer>
+          <div className="mt-2 flex items-center justify-center gap-6 text-[13px]">
+            <div className="flex items-center gap-2">
+              <div className="size-3 rounded-full" style={{ backgroundColor: '#0D1F3C' }} />
+              <span className="font-semibold text-ink">{topCandidateNames[0]}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="size-3 rounded-full" style={{ backgroundColor: '#7BA7D9' }} />
+              <span className="font-semibold text-ink-mid">{topCandidateNames[1]}</span>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       <div className="mt-8 flex flex-wrap gap-3">
         <Button
