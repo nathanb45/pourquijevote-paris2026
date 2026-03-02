@@ -1,4 +1,4 @@
-import { db } from '@/lib/db'
+import { getDb } from '@/lib/db'
 import { quizAnswers } from '@/lib/db/schema'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
   }
 
-  await db
+  await getDb()
     .insert(quizAnswers)
     .values({
       sessionId: body.sessionId,

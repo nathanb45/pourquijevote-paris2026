@@ -1,4 +1,4 @@
-import { db } from '@/lib/db'
+import { getDb } from '@/lib/db'
 import { quizAnswers, quizQuestions, quizSessions } from '@/lib/db/schema'
 import { count, sql } from 'drizzle-orm'
 import {
@@ -14,16 +14,16 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 export const dynamic = 'force-dynamic'
 
 async function getStats() {
-  const [sessionStats] = await db
+  const [sessionStats] = await getDb()
     .select({
       total: count(),
       completed: count(quizSessions.completedAt),
     })
     .from(quizSessions)
 
-  const questions = await db.select().from(quizQuestions).orderBy(quizQuestions.id)
+  const questions = await getDb().select().from(quizQuestions).orderBy(quizQuestions.id)
 
-  const answerDistribution = await db
+  const answerDistribution = await getDb()
     .select({
       questionId: quizAnswers.questionId,
       value: quizAnswers.value,
@@ -33,7 +33,7 @@ async function getStats() {
     .groupBy(quizAnswers.questionId, quizAnswers.value)
     .orderBy(quizAnswers.questionId, quizAnswers.value)
 
-  const dropOff = await db.execute<{ last_question: number; sessions: number }>(sql`
+  const dropOff = await getDb().execute<{ last_question: number; sessions: number }>(sql`
     SELECT last_question, COUNT(*)::int AS sessions
     FROM (
       SELECT qa.session_id, MAX(qa.question_id) AS last_question

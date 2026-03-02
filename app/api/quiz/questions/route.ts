@@ -1,10 +1,10 @@
-import { db } from '@/lib/db'
+import { getDb } from '@/lib/db'
 import { quizQuestions } from '@/lib/db/schema'
 import { asc } from 'drizzle-orm'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  const questions = await db.select().from(quizQuestions).orderBy(asc(quizQuestions.id))
+  const questions = await getDb().select().from(quizQuestions).orderBy(asc(quizQuestions.id))
 
   return NextResponse.json(
     questions.map((q) => ({
