@@ -1,5 +1,8 @@
+'use client'
+
 import React from 'react'
 import { Button } from '@/components/ui/button'
+import { QuizIntro } from '@/components/quiz/quiz-intro'
 import {
   ArrowRight,
   Vote,
@@ -389,6 +392,10 @@ export default function Test() {
           Hero 8 — Minimal Horizontal
         </p>
       </section>
+      {/* ═══════════════════════════════════════════════════
+          CURRENT — QuizIntro live
+      ═══════════════════════════════════════════════════ */}
+      <QuizIntro onStart={() => {}} />
     </div>
   )
 }
