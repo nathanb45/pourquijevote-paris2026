@@ -32,7 +32,7 @@ export function Header() {
           </Link>
         </div>
 
-        <span className="font-serif text-[32px] font-bold italic text-white/75">Édition 2026</span>
+        <span className="font-serif text-[20px] font-bold italic text-white/75">Édition 2026</span>
       </div>
     </header>
   )
