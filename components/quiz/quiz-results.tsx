@@ -70,6 +70,11 @@ export function QuizResults({
 
   return (
     <div className="mx-auto max-w-[1100px] px-6 pb-20 pt-12">
+      <div className="mb-6 rounded-lg border border-ink-light/20 bg-beige px-4 py-3">
+        <p className="text-[14px] text-ink-mid">
+          💡 Pensez à faire une capture d&apos;écran, vos données ne sont pas conservées.
+        </p>
+      </div>
       <h2 className="mb-2 font-sans text-[28px] font-black tracking-tight text-ink">
         Vos résultats
       </h2>
