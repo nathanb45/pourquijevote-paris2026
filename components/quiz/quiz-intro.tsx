@@ -18,7 +18,7 @@ export function QuizIntro({ onStart }: QuizIntroProps) {
       </div>
 
       {/* Candidate portraits strip */}
-      <div className="absolute inset-x-0 top-10 flex items-end justify-center gap-4 opacity-60">
+      <div className="absolute inset-x-0 top-10 flex items-end justify-center gap-4 opacity-90">
         {CANDIDATES.map((c) => (
           <div key={c.id} className="flex flex-col items-center gap-1">
             <div
@@ -42,7 +42,7 @@ export function QuizIntro({ onStart }: QuizIntroProps) {
                 </div>
               )}
             </div>
-            <span className="text-[9px] tracking-wide text-white/30">
+            <span className="text-[9px] tracking-wide text-white/60">
               {c.name.split(' ').pop()}
             </span>
           </div>
