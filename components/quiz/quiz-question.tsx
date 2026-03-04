@@ -198,7 +198,7 @@ export function QuizQuestion({
           </p>
 
           {/* Context — always visible, inside the card */}
-          <ContextSection question={question} />
+          <ContextSection key={index} question={question} />
 
           {/* Answer buttons — horizontal */}
           <div className="mb-5 flex gap-2.5 max-sm:flex-col sm:gap-3">
