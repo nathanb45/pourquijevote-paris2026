@@ -18,31 +18,31 @@ export function QuizIntro({ onStart }: QuizIntroProps) {
       </div>
 
       {/* Candidate portraits strip */}
-      <div className="absolute inset-x-0 top-10 flex items-end justify-center gap-4 opacity-90">
+      <div className="absolute inset-x-0 top-10 flex items-end justify-center gap-3 opacity-90 lg:gap-6">
         {CANDIDATES.map((c) => (
           <div key={c.id} className="flex flex-col items-center gap-1">
             <div
-              className="size-9 overflow-hidden rounded-full ring-1"
+              className="size-9 overflow-hidden rounded-full ring-1 lg:size-16"
               style={{ '--tw-ring-color': c.color } as React.CSSProperties}
             >
               {c.photo ? (
                 <Image
                   src={c.photo}
                   alt={c.name}
-                  width={36}
-                  height={36}
+                  width={64}
+                  height={64}
                   className="size-full object-cover object-top"
                 />
               ) : (
                 <div
-                  className="flex size-full items-center justify-center text-[10px] font-bold text-white"
+                  className="flex size-full items-center justify-center text-[10px] font-bold text-white lg:text-sm"
                   style={{ backgroundColor: c.color }}
                 >
                   {c.name.split(' ').pop()?.[0]}
                 </div>
               )}
             </div>
-            <span className="text-[9px] tracking-wide text-white/60">
+            <span className="text-[9px] tracking-wide text-white/60 lg:text-[11px]">
               {c.name.split(' ').pop()}
             </span>
           </div>
