@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans, DM_Serif_Display } from 'next/font/google'
 import './globals.css'
+import { Analytics } from "@vercel/analytics/next"
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <body className={`${dmSans.variable} ${dmSerif.variable} antialiased`}>{children}</body>
+      <Analytics />
     </html>
   )
 }
