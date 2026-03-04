@@ -96,6 +96,15 @@
   }
 }
 
+@keyframes draw-border {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;

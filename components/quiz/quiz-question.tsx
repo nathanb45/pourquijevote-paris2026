@@ -221,31 +221,53 @@ export function QuizQuestion({
           </div>
 
           {/* Priority */}
-          <button
-            onClick={onTogglePriority}
-            className={`mb-6 flex w-full cursor-pointer select-none items-center gap-2.5 rounded-[10px] border-[1.5px] px-4 py-3 transition-all ${
-              answer.priority
-                ? 'border-analysis-border bg-analysis-bg'
-                : 'border-beige-border bg-white hover:border-analysis-border'
-            }`}
-          >
-            <span
-              className={`flex size-5 shrink-0 items-center justify-center rounded text-[11px] transition-all ${
+          <div className="relative mb-6">
+            {answer.priority && (
+              <svg
+                className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+                aria-hidden
+              >
+                <rect
+                  x="0"
+                  y="0"
+                  width="100%"
+                  height="100%"
+                  rx="10"
+                  ry="10"
+                  fill="none"
+                  stroke="#0D1F3C"
+                  strokeWidth="2"
+                  strokeOpacity="0.35"
+                  pathLength="1"
+                  strokeDasharray="1"
+                  style={{ animation: 'draw-border 0.6s ease-out forwards' }}
+                />
+              </svg>
+            )}
+            <button
+              onClick={onTogglePriority}
+              className={`flex w-full cursor-pointer select-none items-center gap-2.5 rounded-[10px] border-[1.5px] px-4 py-3 transition-all duration-200 ${
                 answer.priority
-                  ? 'border-analysis-border bg-analysis-border text-white'
-                  : 'border-2 border-beige-border'
+                  ? 'border-navy/30 bg-navy/5'
+                  : 'border-beige-border bg-white hover:border-navy/20'
               }`}
             >
-              {answer.priority && '✓'}
-            </span>
-            <span
-              className={`text-[13px] ${
-                answer.priority ? 'font-medium text-analysis-text' : 'text-ink-mid'
-              }`}
-            >
-              Ce sujet est important pour moi (poids x2)
-            </span>
-          </button>
+              <span
+                className={`flex size-5 shrink-0 items-center justify-center rounded text-[11px] transition-all ${
+                  answer.priority ? 'bg-navy text-white' : 'border-2 border-beige-border'
+                }`}
+              >
+                {answer.priority && '✓'}
+              </span>
+              <span
+                className={`text-[13px] ${
+                  answer.priority ? 'font-semibold text-navy' : 'text-ink-mid'
+                }`}
+              >
+                Ce sujet est important pour moi (poids x2)
+              </span>
+            </button>
+          </div>
 
           {/* Navigation */}
           <div className="flex items-center justify-between">
