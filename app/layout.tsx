@@ -18,7 +18,7 @@ const dmSerif = DM_Serif_Display({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pourquiparis.fr'),
+  metadataBase: new URL('https://www.quivoter.com'),
   title: 'Qui pour Paris ? · Municipales 2026',
   description:
     'Sarah Knafo, Emmanuel Grégoire ou encore Pierre-Yves Bournazel... Vous ne savez pas pour qui voter ? Répondez à ces 11 questions et trouvez le candidat qui vous ressemble.',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Qui pour Paris ? · Municipales 2026',
     description:
       'Sarah Knafo, Emmanuel Grégoire ou encore Pierre-Yves Bournazel... Vous ne savez pas pour qui voter ? Répondez à ces 11 questions et trouvez le candidat qui vous ressemble.',
-    url: 'https://pourquiparis.fr',
+    url: 'https://www.quivoter.com',
     siteName: 'Pour qui Paris ?',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     locale: 'fr_FR',
