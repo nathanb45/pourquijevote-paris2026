@@ -37,7 +37,7 @@ const answerOptions = [
   {
     value: 1 as const,
     label: "D'accord",
-    selectedClass: 'border-green bg-green/10 text-green',
+    selectedClass: 'border-navy bg-navy/8 text-navy',
   },
   {
     value: 0 as const,
@@ -47,7 +47,7 @@ const answerOptions = [
   {
     value: -1 as const,
     label: "Pas d'accord",
-    selectedClass: 'border-red-accent bg-red-accent/10 text-red-accent',
+    selectedClass: 'border-navy bg-navy/8 text-navy',
   },
 ]
 
