@@ -133,6 +133,11 @@ export function QuizQuestion({
 }: QuizQuestionProps) {
   const progress = ((index + 1) / total) * 100
 
+  function handleNext() {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+    onNext()
+  }
+
   return (
     <div className="flex min-h-dvh flex-col items-center bg-navy px-4 pb-16 pt-10">
       {/* Back to menu */}
@@ -281,14 +286,14 @@ export function QuizQuestion({
             <div className="flex items-center gap-4">
               {!isLast && (
                 <button
-                  onClick={onNext}
+                  onClick={handleNext}
                   className="cursor-pointer border-none bg-transparent py-2 text-[13px] text-ink-light transition-colors hover:text-ink"
                 >
                   Passer →
                 </button>
               )}
               <Button
-                onClick={onNext}
+                onClick={handleNext}
                 className="rounded-3xl bg-navy px-6 py-2.5 text-[13px] font-semibold text-white hover:bg-[#1a3560]"
               >
                 {isLast ? 'Voir mes résultats →' : 'Suivant →'}
