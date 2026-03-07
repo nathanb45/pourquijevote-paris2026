@@ -59,7 +59,7 @@ export function QuizPage() {
       .then((d) => {
         sessionIdRef.current = d.sessionId
       })
-      .catch(() => {})
+      .catch(console.error)
   }, [questions])
 
   const handleAnswer = useCallback(
@@ -112,7 +112,7 @@ export function QuizPage() {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ sessionId: sessionIdRef.current }),
-        }).catch(() => {})
+        }).catch(console.error)
       }
     }
   }, [currentIndex, questions.length])
