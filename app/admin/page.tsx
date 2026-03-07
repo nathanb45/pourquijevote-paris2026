@@ -12,6 +12,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 async function getStats() {
   const [sessionStats] = await getDb()
