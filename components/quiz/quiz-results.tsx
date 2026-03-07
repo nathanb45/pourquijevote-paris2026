@@ -150,7 +150,7 @@ export function QuizResults({
             >
               ↺ Refaire le quiz
             </Button>
-            <Link href="/">
+            <Link href="/programmes">
               <Button className="rounded-3xl bg-navy px-6 py-3 text-[14px] font-semibold text-white hover:bg-[#1a3560]">
                 Explorer les programmes →
               </Button>

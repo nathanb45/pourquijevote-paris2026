@@ -4,6 +4,7 @@ export interface Candidate {
   party: string
   color: string
   photo?: string
+  programUrl?: string
 }
 
 export interface QuizQuestion {

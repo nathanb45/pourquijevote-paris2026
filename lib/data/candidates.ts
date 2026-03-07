@@ -7,6 +7,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'PS',
     color: '#E91E8C',
     photo: '/candidates/gregoire.jpg',
+    programUrl: '',
   },
   {
     id: 'knafo',
@@ -14,6 +15,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'Reconquête',
     color: '#1A237E',
     photo: '/candidates/knafo.jpg',
+    programUrl: '',
   },
   {
     id: 'bournazel',
@@ -21,6 +23,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'Renaissance',
     color: '#FF8C00',
     photo: '/candidates/bournazel.jpg',
+    programUrl: '',
   },
   {
     id: 'dati',
@@ -28,6 +31,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'LR',
     color: '#0066CC',
     photo: '/candidates/dati.jpg',
+    programUrl: '',
   },
   {
     id: 'mariani',
@@ -35,6 +39,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'RN',
     color: '#003189',
     photo: '/candidates/mariani.jpg',
+    programUrl: '',
   },
   {
     id: 'chikirou',
@@ -42,5 +47,6 @@ export const CANDIDATES: Candidate[] = [
     party: 'LFI',
     color: '#CC0000',
     photo: '/candidates/chikirou.jpg',
+    programUrl: '',
   },
 ]
