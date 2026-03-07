@@ -3,28 +3,33 @@ import { quizAnswers } from '@/lib/db/schema'
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
-  const body = await request.json()
+  try {
+    const body = await request.json()
 
-  if (!body.sessionId || !body.questionId || body.value === undefined) {
-    return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
-  }
+    if (!body.sessionId || !body.questionId || body.value === undefined) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
 
-  await getDb()
-    .insert(quizAnswers)
-    .values({
-      sessionId: body.sessionId,
-      questionId: body.questionId,
-      value: body.value,
-      priority: body.priority ?? false,
-    })
-    .onConflictDoUpdate({
-      target: [quizAnswers.sessionId, quizAnswers.questionId],
-      set: {
+    await getDb()
+      .insert(quizAnswers)
+      .values({
+        sessionId: body.sessionId,
+        questionId: body.questionId,
         value: body.value,
         priority: body.priority ?? false,
-        answeredAt: new Date(),
-      },
-    })
+      })
+      .onConflictDoUpdate({
+        target: [quizAnswers.sessionId, quizAnswers.questionId],
+        set: {
+          value: body.value,
+          priority: body.priority ?? false,
+          answeredAt: new Date(),
+        },
+      })
 
-  return new NextResponse(null, { status: 204 })
+    return new NextResponse(null, { status: 204 })
+  } catch (err) {
+    console.error('[quiz/answers POST]', err)
+    return NextResponse.json({ error: 'Failed to save answer' }, { status: 500 })
+  }
 }
