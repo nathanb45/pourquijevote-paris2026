@@ -70,9 +70,7 @@ export default function ProgrammesPage() {
                     {c.name}
                   </Link>
                 ) : (
-                  <span className="text-[14px] font-semibold text-white/40">
-                    {c.name}
-                  </span>
+                  <span className="text-[14px] font-semibold text-white/40">{c.name}</span>
                 )}
               </div>
             </div>

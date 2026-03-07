@@ -31,7 +31,8 @@ export const CANDIDATES: Candidate[] = [
     party: 'LR',
     color: '#0066CC',
     photo: '/candidates/dati.jpg',
-    programUrl: 'https://rachidadati2026.com/dossiers_de_presse/dossier-de-presse-programme-rachida-dati/',
+    programUrl:
+      'https://rachidadati2026.com/dossiers_de_presse/dossier-de-presse-programme-rachida-dati/',
   },
   {
     id: 'mariani',
