@@ -22,7 +22,7 @@ export function Header() {
               <div className="font-serif text-[46px] leading-none text-white">
                 <span className="relative">
                   <span className="absolute left-1/2 -top-[9px] -translate-x-1/2 whitespace-nowrap font-sans text-[18px] font-light italic text-white/40">
-                    pour qui
+                    qui pour
                   </span>
                   Paris
                 </span>
