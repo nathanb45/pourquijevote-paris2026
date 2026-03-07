@@ -7,7 +7,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'PS',
     color: '#E91E8C',
     photo: '/candidates/gregoire.jpg',
-    programUrl: '',
+    programUrl: 'https://emmanuel-gregoire-2026.fr/programme/',
   },
   {
     id: 'knafo',
@@ -15,7 +15,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'Reconquête',
     color: '#1A237E',
     photo: '/candidates/knafo.jpg',
-    programUrl: '',
+    programUrl: 'https://sarahpourparis.fr/unevilleheureuse',
   },
   {
     id: 'bournazel',
@@ -23,7 +23,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'Renaissance',
     color: '#FF8C00',
     photo: '/candidates/bournazel.jpg',
-    programUrl: '',
+    programUrl: 'https://bournazel.paris/',
   },
   {
     id: 'dati',
@@ -31,7 +31,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'LR',
     color: '#0066CC',
     photo: '/candidates/dati.jpg',
-    programUrl: '',
+    programUrl: 'https://rachidadati2026.com/dossiers_de_presse/dossier-de-presse-programme-rachida-dati/',
   },
   {
     id: 'mariani',
@@ -39,7 +39,7 @@ export const CANDIDATES: Candidate[] = [
     party: 'RN',
     color: '#003189',
     photo: '/candidates/mariani.jpg',
-    programUrl: '',
+    programUrl: 'https://www.mariani-2026.fr/Le-programme',
   },
   {
     id: 'chikirou',
@@ -47,6 +47,6 @@ export const CANDIDATES: Candidate[] = [
     party: 'LFI',
     color: '#CC0000',
     photo: '/candidates/chikirou.jpg',
-    programUrl: '',
+    programUrl: 'https://sophiapourparis.fr/',
   },
 ]
