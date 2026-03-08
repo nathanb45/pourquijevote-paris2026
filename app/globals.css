@@ -96,6 +96,15 @@
   }
 }
 
+@keyframes orbit-sweep {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -1;
+  }
+}
+
 @keyframes draw-border {
   from {
     stroke-dashoffset: 1;

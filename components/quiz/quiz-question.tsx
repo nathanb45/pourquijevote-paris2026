@@ -132,7 +132,6 @@ export function QuizQuestion({
   isLast,
 }: QuizQuestionProps) {
   const progress = ((index + 1) / total) * 100
-
   function handleNext() {
     window.scrollTo({ top: 0, behavior: 'instant' })
     onNext()
@@ -227,28 +226,22 @@ export function QuizQuestion({
 
           {/* Priority */}
           <div className="relative mb-6">
-            {answer.priority && (
-              <svg
-                className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
-                aria-hidden
-              >
-                <rect
-                  x="0"
-                  y="0"
-                  width="100%"
-                  height="100%"
-                  rx="10"
-                  ry="10"
-                  fill="none"
-                  stroke="#0D1F3C"
-                  strokeWidth="2"
-                  strokeOpacity="0.35"
-                  pathLength="1"
-                  strokeDasharray="1"
-                  style={{ animation: 'draw-border 0.6s ease-out forwards' }}
-                />
-              </svg>
-            )}
+            <svg className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden>
+              <rect
+                x="0"
+                y="0"
+                width="100%"
+                height="100%"
+                rx="10"
+                ry="10"
+                fill="none"
+                stroke="#5b9fd6"
+                strokeWidth="2"
+                pathLength="1"
+                strokeDasharray="0.12 0.88"
+                style={{ animation: 'orbit-sweep 3s linear infinite' }}
+              />
+            </svg>
             <button
               onClick={onTogglePriority}
               className={`flex w-full cursor-pointer select-none items-center gap-2.5 rounded-[10px] border-[1.5px] px-4 py-3 transition-all duration-200 ${
@@ -265,8 +258,8 @@ export function QuizQuestion({
                 {answer.priority && '✓'}
               </span>
               <span
-                className={`text-[13px] ${
-                  answer.priority ? 'font-semibold text-navy' : 'text-ink-mid'
+                className={`text-[13px] font-semibold ${
+                  answer.priority ? 'text-navy' : 'text-ink-mid'
                 }`}
               >
                 Ce sujet est important pour moi (poids x2)
