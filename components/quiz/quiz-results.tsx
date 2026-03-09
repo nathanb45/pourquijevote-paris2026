@@ -48,7 +48,7 @@ export function QuizResults({
   const listRef = useRef<HTMLDivElement>(null)
 
   function handleCopyLink() {
-    const url = typeof window !== 'undefined' ? window.location.origin + '/quiz' : ''
+    const url = 'https://www.quivoter.com/'
     navigator.clipboard.writeText(url).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
@@ -88,7 +88,7 @@ export function QuizResults({
         <h2 className="font-sans text-[28px] font-black tracking-tight text-ink">Vos résultats</h2>
         <div className="flex flex-wrap gap-2">
           <a
-            href={`https://wa.me/?text=${encodeURIComponent('Découvrez avec quel candidat aux municipales de Paris 2026 vous êtes le plus aligné ! ' + (typeof window !== 'undefined' ? window.location.origin + '/quiz' : ''))}`}
+            href={`https://wa.me/?text=${encodeURIComponent('Découvrez avec quel candidat aux municipales de Paris 2026 vous êtes le plus aligné ! https://www.quivoter.com/')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 rounded-full border border-[#25D366] bg-white px-4 py-2 text-[13px] font-semibold text-[#25D366] transition-opacity hover:opacity-75"
